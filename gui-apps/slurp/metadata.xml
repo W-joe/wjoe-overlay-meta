@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>invalid@example.com</email>
+		<name>wjoe</name>
+	</maintainer>
+	<longdescription lang="en">
+		Select a region in a Wayland compositor and print it to stdout. Works on Sway. Forked from https://github.com/emersion/slurp
+	</longdescription>
+	<upstream>
+		<remote-id type="github">W-joe/slurp</remote-id>
+		<bugs-to>https://github.com/W-joe/slurp/issues</bugs-to>
+		<changelog>https://github.com/W-joe/slurp/releases</changelog>
+	</upstream>
+</pkgmetadata>
