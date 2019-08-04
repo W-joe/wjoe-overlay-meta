@@ -1,1 +1,2 @@
 move wayland-misc/slurp gui-apps/slurp
+move wayland-misc/waybar gui-apps/waybar
