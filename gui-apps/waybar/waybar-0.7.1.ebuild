@@ -26,7 +26,8 @@ RDEPEND="sys-libs/libcap
 	dev-libs/libinput
 	dev-libs/wayland
 	dev-cpp/gtkmm:3.0
-	tray? ( dev-libs/libdbusmenu[gtk3] )
+	tray? ( dev-libs/libdbusmenu[gtk3]
+		dev-libs/libappindicator )
 	dev-libs/jsoncpp
 	dev-libs/libsigc++
 	netlink? ( dev-libs/libnl )
@@ -44,4 +45,8 @@ src_configure() {
 		-Ddbusmenu-gtk=$(usex tray enabled disabled)
 	)
 	meson_src_configure
+}
+
+pkg_postinst() {
+	elog "For a functional tray you must export XDG_CURRENT_DESKTOP=Unity"
 }
