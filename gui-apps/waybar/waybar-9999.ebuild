@@ -11,9 +11,9 @@ LICENSE="MIT"
 
 if [[ ${PV} == 9999 ]]; then
 	inherit git-r3
-	EGIT_REPO_URI="https://github.com/Alexays/${PN}.git"
+	EGIT_REPO_URI="https://github.com/W-joe/${PN}.git"
 else
-	SRC_URI="https://github.com/Alexays/Waybar/archive/${PV}.tar.gz -> ${P}.tar.gz"
+	SRC_URI="https://github.com/W-joe/Waybar/archive/${PV}.tar.gz -> ${P}.tar.gz"
 	S=${WORKDIR}/Waybar-${PV}
 fi
 
