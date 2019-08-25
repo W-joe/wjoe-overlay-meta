@@ -14,4 +14,5 @@ KEYWORDS="amd64 arm ~arm64 x86"
 IUSE=""
 
 FONT_SUFFIX="ttf woff woff2"
+S=${WORKDIR}/${PN}/fonts/
 
