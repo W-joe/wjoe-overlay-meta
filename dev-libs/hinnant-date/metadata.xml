@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>invalid@example.com</email>
+		<name>wjoe</name>
+	</maintainer>
+	<longdescription lang="en">
+		A date and time library based on the C++11/14/17 <chrono> header
+	</longdescription>
+	<use>
+		<flag name="system-tzdb">Use the system timezone database.</flag>
+	</use>
+	<upstream>
+		<remote-id type="github">HowardHinnant/date</remote-id>
+		<bugs-to>https://github.com/HowardHinnant/date/issues</bugs-to>
+		<changelog>https://github.com/HowardHinnant/date/releases</changelog>
+	</upstream>
+</pkgmetadata>
