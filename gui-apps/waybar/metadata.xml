@@ -9,9 +9,14 @@
 		Highly customizable Wayland bar for Sway and Wlroots based compositors.
 	</longdescription>
 	<use>
-		<flag name="netlink">Build Network module.</flag>
-		<flag name="pulseaudio">Build Pulseaudio module.</flag>
-		<flag name="tray">Enable support for StatusNotifierItem tray specification</flag>
+		<flag name="doc">Generate man pages.</flag>
+		<flag name="gtklayershell">Use gtk-layer-shell library for popups support.</flag>
+		<flag name="netlink">Enable libnl support for network related features.</flag>
+		<flag name="mpd">Enable support for the Music Player Daemon.</flag>
+		<flag name="pulseaudio">Enable support for Pulseaudio.</flag>
+		<flag name="systemd">Enable support for systemd and install user service unit.</flag>
+		<flag name="tray">Enable support for StatusNotifierItem tray specification.</flag>
+		<flag name="udev">Enable libudev support for udev related features.</flag>
 	</use>
 	<upstream>
 		<remote-id type="github">Alexays/Waybar</remote-id>
