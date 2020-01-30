@@ -26,7 +26,7 @@ BDEPEND="
 "
 
 DEPEND="
-	x11-libs/gtk+:3.0
+	x11-libs/gtk+:3
 	dev-libs/wayland
 "
 RDEPEND="${DEPEND}"
