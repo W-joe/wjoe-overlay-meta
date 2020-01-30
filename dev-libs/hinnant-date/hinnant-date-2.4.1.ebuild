@@ -3,7 +3,7 @@
 
 EAPI=7
 
-inherit meson
+inherit cmake
 
 DESCRIPTION="A date and time library based on the C++11/14/17 <chrono> header"
 HOMEPAGE="https://github.com/HowardHinnant/date"
@@ -27,9 +27,10 @@ DEPEND="
 RDEPEND="${DEPEND}"
 
 src_configure() {
-	local emesonargs=(
-		$(meson_feature system-tzdb use-system-tzdb)
+	local mycmakeargs=(
+		-DBUILD_SHARED_LIBS=YES
+		-DWITH_USE_SYSTEM_TZ_DB="$(usex system-tzdb)"
 	)
-	meson_src_configure
+	cmake_src_configure
 }
 
