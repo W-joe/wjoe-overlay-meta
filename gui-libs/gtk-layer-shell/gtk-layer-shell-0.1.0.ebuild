@@ -33,8 +33,8 @@ RDEPEND="${DEPEND}"
 
 src_configure() {
 	local emesonargs=(
-		$(meson_feature docs)
-		$(meson_feature examples)
+		$(meson_use doc docs)
+		$(meson_use examples)
 	)
 	meson_src_configure
 }
