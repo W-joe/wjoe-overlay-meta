@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>invalid@example.com</email>
+		<name>wjoe</name>
+	</maintainer>
+	<longdescription lang="en">
+		A library to create panels and other desktop components for Wayland using the Layer Shell protocol.
+	</longdescription>
+	<use>
+		<flag name="docs">Build devhelp API documentation.</flag>
+		<flag name="examples">Build example applications.</flag>
+	</use>
+	<upstream>
+		<remote-id type="github">wmww/gtk-layer-shell</remote-id>
+		<bugs-to>https://github.com/wmww/gtk-layer-shell/issues</bugs-to>
+		<changelog>https://github.com/wmww/gtk-layer-shell/releases</changelog>
+	</upstream>
+</pkgmetadata>
