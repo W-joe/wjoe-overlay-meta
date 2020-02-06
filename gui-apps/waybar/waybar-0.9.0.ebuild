@@ -11,13 +11,14 @@ LICENSE="MIT"
 
 if [[ ${PV} == 9999 ]]; then
 	inherit git-r3
-	EGIT_REPO_URI="https://github.com/W-joe/${PN^}.git"
+	EGIT_REPO_URI="https://github.com/Alexays/${PN^}.git"
 else
-	SRC_URI="https://github.com/W-joe/Waybar/archive/v${PV}.tar.gz -> ${P}.tar.gz"
-	S=${WORKDIR}/Waybar-${PV}
+	SRC_URI="https://github.com/Alexays/Waybar/archive/${PV}.tar.gz -> ${P}.tar.gz
+			https://github.com/W-joe/waybar-no-wifi-hack/archive/${PV}.tar.gz -> ${P}-no-wifi-patch.tar.gz"
+	S=${WORKDIR}/${PN^}-${PV}
 fi
 
-KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86"
+KEYWORDS="~alpha amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86"
 SLOT="0"
 IUSE="doc +gtklayershell mpd +netlink pulseaudio systemd +tray +udev"
 
@@ -36,7 +37,6 @@ DEPEND="
 	>=dev-libs/spdlog-1.3.1:=
 	dev-libs/wayland
 	dev-libs/wayland-protocols
-	>=dev-libs/hinnant-date-2.4.1:=
 	gui-libs/wlroots
 	gtklayershell? ( >=gui-libs/gtk-layer-shell-0.1.0:= )
 	mpd? ( media-libs/libmpdclient )
@@ -48,6 +48,11 @@ DEPEND="
 	udev? ( virtual/libudev:= )
 "
 RDEPEND="${DEPEND}"
+
+src_prepare() {
+	eapply -p3 "${WORKDIR}/${PN}-no-wifi-hack-${PV}/network.patch"
+	eapply_user
+}
 
 src_configure() {
 	local emesonargs=(
