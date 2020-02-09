@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>invalid@example.com</email>
+		<name>wjoe</name>
+	</maintainer>
+	<longdescription lang="en">
+		A featherweight, lemon-scented, bar based on XCB.
+	</longdescription>
+	<use>
+		<flag name="doc">Generate man pages.</flag>
+	</use>
+	<upstream>
+		<remote-id type="github">LemonBoy/bar</remote-id>
+		<bugs-to>https://github.com/LemonBoy/bar/issues</bugs-to>
+		<changelog>https://github.com/LemonBoy/bar/releases</changelog>
+	</upstream>
+</pkgmetadata>
