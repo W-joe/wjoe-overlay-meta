@@ -1,0 +1,12 @@
+--- psensor-v1.2.0/src/Makefile.am.original	2020-02-14 22:10:43.139602724 +0100
++++ psensor-v1.2.0/src/Makefile.am	2020-02-14 22:06:46.787553546 +0100
+@@ -99,7 +99,9 @@
+ 
+ if CURL
+ if JSON
++if REMOTE
+ psensor_SOURCES += rsensor.c
++endif
+ LIBS += $(CURL_LIBS) $(JSON_LIBS)
+ AM_CPPFLAGS += $(CURL_CFLAGS) $(JSON_CFLAGS)
+ endif

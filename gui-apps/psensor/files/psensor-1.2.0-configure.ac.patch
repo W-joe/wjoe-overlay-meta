@@ -1,0 +1,29 @@
+--- psensor-v1.2.0/configure.ac.original	2020-02-14 22:10:18.291805604 +0100
++++ psensor-v1.2.0/configure.ac	2020-02-14 22:06:06.915843634 +0100
+@@ -143,12 +143,25 @@
+ AC_SUBST(JSON_CFLAGS)
+ AC_SUBST(JSON_LIBS)
+ 
++# Check remote, optional
++AC_ARG_WITH(remote,
++[  --with-remote[=yes|no]   use remote],[
++	with_remote=$withval],[
++	with_remote="yes"
++])
++
+ # Enables remote monitoring if JSON and CURL is present
+ if test -n "$JSON_LIBS"; then
+    if test -n "$CURL_LIBS"; then
+-   AC_DEFINE([HAVE_REMOTE_SUPPORT],[1],[Remote monitoring enabled])
++      if test "$with_remote" = "yes"; then
++         AC_DEFINE([HAVE_REMOTE_SUPPORT],[1],[Remote monitoring enabled])
++      else
++         AC_DEFINE([HAVE_REMOTE_SUPPORT],[0],[Remote monitoring disabled])
++      fi
+    fi
+ fi
++AM_CONDITIONAL(REMOTE, test "$with_remote" = "yes")
++
+ 
+ # Checks NVIDIA
+ # following code from sensors-applet
