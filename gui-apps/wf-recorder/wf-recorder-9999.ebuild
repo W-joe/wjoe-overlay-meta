@@ -11,7 +11,7 @@ EGIT_REPO_URI="https://github.com/ammen99/wf-recorder.git"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86"
 IUSE=""
 
 DEPEND="
@@ -21,5 +21,5 @@ DEPEND="
 RDEPEND="${DEPEND}"
 BDEPEND="
 		virtual/pkgconfig
-		=dev-libs/wayland-protocols-9999
+		>=dev-libs/wayland-protocols-1.18
 		"
