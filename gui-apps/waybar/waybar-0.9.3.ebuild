@@ -13,13 +13,14 @@ if [[ ${PV} == 9999 ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/Alexays/${PN^}.git"
 else
-	SRC_URI="https://github.com/Alexays/Waybar/archive/${PV}.tar.gz -> ${P}.tar.gz"
+	SRC_URI="https://github.com/Alexays/Waybar/archive/${PV}.tar.gz -> ${P}.tar.gz
+			https://github.com/W-joe/waybar-rfkill-optional/archive/${PV}.tar.gz -> ${P}-rfkill-optional.tar.gz"
 	S=${WORKDIR}/${PN^}-${PV}
 fi
 
 KEYWORDS="~alpha amd64 ~arm ~arm64 ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86"
 SLOT="0"
-IUSE="doc +gtklayershell mpd +netlink pulseaudio systemd +tray +udev"
+IUSE="doc +gtklayershell mpd +netlink pulseaudio systemd +tray +udev -rfkill"
 
 BDEPEND="
 	>=app-text/scdoc-1.9.2
@@ -49,6 +50,13 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
+src_prepare() {
+	eapply -p1 "${WORKDIR}/${PN}-rfkill-optional-${PV}/0001-meson.patch"
+	eapply -p1 "${WORKDIR}/${PN}-rfkill-optional-${PV}/0002-network.patch"
+	eapply -p1 "${WORKDIR}/${PN}-rfkill-optional-${PV}/0003-factory.patch"
+	eapply_user
+}
+
 src_configure() {
 	local emesonargs=(
 		$(meson_feature doc man-pages)
@@ -59,6 +67,7 @@ src_configure() {
 		$(meson_feature systemd)
 		$(meson_feature tray dbusmenu-gtk)
 		$(meson_feature udev libudev)
+		$(meson_feature rfkill)
 	)
 	meson_src_configure
 }
