@@ -3,11 +3,17 @@
 
 EAPI=7
 
-inherit git-r3 meson
+inherit meson
 
 DESCRIPTION="A program for screen recording of wlroots-based compositors"
 HOMEPAGE="https://github.com/ammen99/wf-recorder"
-EGIT_REPO_URI="https://github.com/ammen99/wf-recorder.git"
+if [[ ${PV} == 9999 ]]; then
+	inherit git-r3
+	EGIT_REPO_URI="https://github.com/ammen99/wf-recorder.git"
+else
+	SRC_URI="https://github.com/ammen99/wf-recorder/archive/${PV}.tar.gz -> ${P}.tar.gz"
+	S=${WORKDIR}/${PN^}-${PV}
+fi
 
 LICENSE="MIT"
 SLOT="0"
