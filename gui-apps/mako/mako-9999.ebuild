@@ -29,7 +29,7 @@ DEPEND="
 		sys-auth/elogind
 		sys-apps/systemd
 	)
-	sys-apps/dbus[user-session]
+	sys-apps/dbus
 	icons? (
 		x11-libs/gtk+:3
 		x11-libs/gdk-pixbuf
