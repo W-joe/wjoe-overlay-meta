@@ -34,7 +34,7 @@ DEPEND="
 	dev-libs/libinput:=
 	dev-libs/libdbusmenu:=
 	dev-libs/libsigc++:2
-	>=dev-libs/spdlog-1.3.1:=
+	>=dev-libs/spdlog-1.8.5:=
 	dev-libs/wayland
 	gui-libs/wlroots
 	gtklayershell? ( >=gui-libs/gtk-layer-shell-0.1.0:= )
